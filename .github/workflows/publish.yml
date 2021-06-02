@@ -28,9 +28,9 @@ jobs:
     - run: npm run build --if-present
     - run: ls
     - run: git checkout publish
-    - run: rm -rf /*
+#    - run: rm -rf /*
     - run: ls
-    - run: git checkout master -- /dist/*
-    - run: ls
-    - run: cd dist
-    - run: ls
+#    - run: git checkout master -- /dist/*
+    - run: ls /
+#    - run: cd dist
+#    - run: ls

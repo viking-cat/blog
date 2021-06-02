@@ -23,6 +23,8 @@ jobs:
     - run: echo Hello World
     - run: ls
     - run: git branch
-#    - run: npm ci
-#    - run: npm run build --if-present
+    - run: npm ci
+    - run: ls
+    - run: npm run build --if-present
+    - run: ls
 #    - run: npm test

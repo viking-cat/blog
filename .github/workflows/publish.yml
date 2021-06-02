@@ -28,6 +28,7 @@ jobs:
         node-version: ${{ matrix.node-version }}  
     
     - run: echo Publish website!
+    - run: mv ./.gitignore ./gitNotIgnored
     - run: git branch
     - run: npm ci
     - run: ls
@@ -36,6 +37,7 @@ jobs:
     - run: git status
     - run: git add ./dist
     - run: git status
+    - run: mv ./gitNotIgnored ./.gitignore
     - run: echo THE END
 #    - name: Checkout PUBLISH branch
 #      uses: actions/checkout@v2

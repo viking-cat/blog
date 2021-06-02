@@ -1,0 +1,28 @@
+name: Deploy SSG
+
+on:
+  push:
+    branches: [ publish ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 14.x ]
+    steps:
+    # Checkout "Publish" Branch
+    - name: Checkout PUBLISH branch
+      uses: actions/checkout@v2
+      with:
+        ref: 'publish'
+        fetch-depth: 0
+    # Deal with Git Config
+    - name: Setup GitConfig
+      uses: fregante/setup-git-user@v1
+    # Append dummy text to a file
+    - run: echo "This is a test file $(date \"+%Y.%m.%d-%H.%M.%S\")" > ./branch.txt
+    # Create and push 
+    - run: git add ./dummy.txt
+    - run: git commit -m "Branch Update"
+    - run: git push   

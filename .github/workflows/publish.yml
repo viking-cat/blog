@@ -32,17 +32,21 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: ls
-    
-    - name: Checkout PUBLISH branch
-      uses: actions/checkout@v2
-      with:
-        ref: 'publish'
-        fetch-depth: 0
-        clean: 'false'
+    - run: |
+      git status
+      git add ./dist
+      git status
+    - run: echo THE END
+#    - name: Checkout PUBLISH branch
+#      uses: actions/checkout@v2
+#      with:
+#       ref: 'publish'
+#        fetch-depth: 0
+#        clean: 'false'
 #    - run: git checkout publish
 #    - run: rm -rf ./*
-    - run: git branch
-    - run: ls
+#    - run: git branch
+#    - run: ls
 #    - run: git checkout master -- dist
 #    - run: ls
 #    - run: cd dist

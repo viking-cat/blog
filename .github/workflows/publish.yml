@@ -33,9 +33,9 @@ jobs:
     - run: npm run build --if-present
     - run: ls
     - run: |
-      git status
-      git add ./dist
-      git status
+       git status
+       git add ./dist
+       git status
     - run: echo THE END
 #    - name: Checkout PUBLISH branch
 #      uses: actions/checkout@v2

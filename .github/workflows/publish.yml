@@ -30,12 +30,12 @@ jobs:
     - run: echo Publish website!
     - run: git branch
     - run: npm ci
+    - run: ls
     - run: npm run build --if-present
     - run: ls
-    - run: |
-       git status
-       git add ./dist
-       git status
+    - run: git status
+    - run: git add ./dist
+    - run: git status
     - run: echo THE END
 #    - name: Checkout PUBLISH branch
 #      uses: actions/checkout@v2

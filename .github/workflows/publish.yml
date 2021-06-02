@@ -37,6 +37,8 @@ jobs:
     - run: git status
     - run: git add ./dist
     - run: git status
+    - run: git commit -m "Website Built"
+    - run: git push origin publish
     - run: mv ./gitNotIgnored ./.gitignore
     - run: echo THE END
 #    - name: Checkout PUBLISH branch

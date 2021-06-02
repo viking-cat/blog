@@ -15,9 +15,11 @@ jobs:
         node-version: [ 14.x ]
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout MASTER branch
+      uses: actions/checkout@v2
       with:
-        fetch-depth: 0 # makes ci fetch complete history for all commits etc
+        ref: 'master'
+        fetch-depth: 0
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
@@ -27,10 +29,17 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: ls
-    - run: git checkout publish
-    - run: rm -rf ./*
+    - name: Checkout PUBLISH branch
+      uses: actions/checkout@v2
+      with:
+        ref: 'publish'
+        fetch-depth: 0
+        clean: 'false'
+#    - run: git checkout publish
+#    - run: rm -rf ./*
+    - run: git branch
     - run: ls
-    - run: git checkout master -- dist
-    - run: ls
+#    - run: git checkout master -- dist
+#    - run: ls
 #    - run: cd dist
 #    - run: ls

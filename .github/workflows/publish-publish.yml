@@ -38,6 +38,6 @@ jobs:
     # Create and push
     - run: |
         echo "Add and commit website back to publish branch"
-        git add ./branch.txt
-        git commit -m "Branch Update"
+        git add .
+        git commit -m "New website build"
         git push   

@@ -33,8 +33,8 @@ jobs:
       uses: fregante/setup-git-user@v1
     
     - run: echo Publish website!
-    - run: git config --global user.email "you@example.com"
-    - run: git config --global user.name "Your Name"
+#    - run: git config --global user.email "you@example.com"
+#    - run: git config --global user.name "Your Name"
     - run: mv ./.gitignore ./gitNotIgnored
     - run: git branch
     - run: npm ci

@@ -21,10 +21,23 @@ jobs:
     - name: Setup GitConfig
       uses: fregante/setup-git-user@v1
     # Append dummy text to a file
-    - run: echo "This is a test file $(date \"+%Y.%m.%d-%H.%M.%S\")" > ./branch.txt
-    # Create and push 
+    # - run: echo "This is a test file $(date \"+%Y.%m.%d-%H.%M.%S\")" > ./branch.txt
+    # Clean out unwanted files
     - run: |
-        echo "Add test file to publish branch"
+        echo "Removing unwanted files and folders"
+        rm -rf ./_site
+        rm -rf ./plugins
+        rm -f ./.eleventy.js
+        rm -f ./branch.txt
+        rm -f ./.gitattributes
+        rm -f ./.gitignore
+        rm -f ./package.json
+        rm -f ./package-lock.json
+        mv -v ./dist/* ./
+        rm -rf ./dist
+    # Create and push
+    - run: |
+        echo "Add and commit website back to publish branch"
         git add ./branch.txt
         git commit -m "Branch Update"
         git push   

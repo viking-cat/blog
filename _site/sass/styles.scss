@@ -73,7 +73,8 @@ body {
         #background {
             @include fullscreen();
             //background-image: url("/assets/images/background/spaceRest.jpeg");
-            background-image: url("#{PATH_PREFIX}/assets/images/background/cyberpunkCity.jpg");
+            //background-image: url("#{PATH_PREFIX}/assets/images/background/cyberpunkCity.jpg");
+            background-image: url("../assets/images/background/cyberpunkCity.jpg");
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;

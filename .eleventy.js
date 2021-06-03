@@ -26,33 +26,8 @@ module.exports = function(eleventyConfig)
      * Gret Guide: https://dev.to/jkc_codes/using-sass-with-eleventy-21le
      *************************************************************************/
 
-    //module.exports = function(config) {
-    //    config.setBrowserSyncConfig({
-    //        files: './_site/css/**/*.css'
-    //    });
-    //};
-    
-    
-
-    /* DEBUG CONFIG */
-    //console.log("Includes Mapp: " + config.dir.includes);
-    /*for (let key in config)
-    {
-        console.log("Includes Mapp: " + key);
-    }*/
-    /*console.log("================================================================================");
-    console.log(Object.keys(config));
-    console.log("================================================================================");
-    console.log(Object.keys(config.libraryOverrides));
-    console.log("================================================================================");*/
-
-    //templateFormats: ["html", "md"],
-    /* This is how to run LIQUID:
-        htmlTemplateEngine: "liquid",
-        markdownTemplateEngine: "liquid"
-    */
-
     return {
+        pathPrefix: "/blog/",
         dir: {
             includes: "includes",
             //data:     "_site/data",
@@ -61,6 +36,5 @@ module.exports = function(eleventyConfig)
         },
         templateFormats: ["html", "liquid", "njk", "md"],
         htmlTemplateEngine: "njk",
-        //markdownTemplateEngine: "njk"
     };
 }

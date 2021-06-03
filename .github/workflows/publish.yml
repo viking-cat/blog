@@ -1,4 +1,4 @@
-name: Build & Publish
+name: Build & Push
 
 on:
   push:
@@ -18,8 +18,11 @@ jobs:
       with:
         ref: 'main'
         fetch-depth: 0
-        persist-credentials: false
-    # Persist-credentials is supposed to help when you want to trigger actions in the publish branch as well
+        token: ${{secrets.ACTIONSPUSHTOPUSH}}
+    # token is needed to trigger push workflow on 'publish' branch
+    # https://stackoverflow.com/questions/64076798/how-to-trigger-a-github-actions-workflow-on-push-to-another-branch
+    # https://docs.github.com/en/actions/reference/events-that-trigger-workflows#triggering-new-workflows-using-a-personal-access-token
+    # https://www.youtube.com/watch?v=SzrETQdGzBM
     
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2

@@ -1,4 +1,4 @@
-name: Deploy SSG
+name: [publish] Publish Website
 
 on:
   push:
@@ -23,6 +23,8 @@ jobs:
     # Append dummy text to a file
     - run: echo "This is a test file $(date \"+%Y.%m.%d-%H.%M.%S\")" > ./branch.txt
     # Create and push 
-    - run: git add ./dummy.txt
-    - run: git commit -m "Branch Update"
-    - run: git push   
+    - run: |
+        echo "Add test file to publish branch"
+        git add ./branch.txt
+        git commit -m "Branch Update"
+        git push   

@@ -1,0 +1,80 @@
+/*
+   @name: home.scss
+   @description: This file defines the CSS for home inside the BODY > MAIN  tag
+   @parent: styles.scss
+*/
+main div#homeContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 8px 0px 8px 0px;
+}
+main div#homeContainer #homeMain {
+  flex: 3 0 auto;
+  order: 1;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+main div#homeContainer #homeMain .post {
+  margin: 0px 0px 8px 0px;
+  padding: 8px 8px 8px 8px;
+  background-color: rgba(102, 102, 102, 0.5);
+}
+main div#homeContainer #homeMain .post .postTitle {
+  font-size: 16px;
+}
+main div#homeContainer #homeMain .post .postDate {
+  font-size: 12px;
+}
+main div#homeContainer #homeMain .post .postExcerpt {
+  font-size: 11px;
+}
+main div#homeContainer #homeSide {
+  flex: 2 0;
+  order: 2;
+  margin: 0px 0px 0px 16px;
+  padding: 0px 0px 0px 0px;
+}
+main div#homeContainer #homeSide .sideMenuContainer {
+  background-color: rgba(102, 102, 102, 0.5);
+  margin: 0px 0px 16px 0px;
+}
+main div#homeContainer #homeSide .sideMenuContainer .sideMenuTitle {
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 8px 8px 8px 8px;
+  background-color: rgba(102, 102, 102, 0.5);
+}
+main div#homeContainer #homeSide .sideMenuContainer .sideMenuContent {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding: 8px 8px 8px 8px;
+  color: white;
+  text-align: justify;
+}
+main div#homeContainer #homeSide .sideMenuContainer .sideMenuContent .tag {
+  flex: 1 0 auto;
+  box-sizing: border-box;
+  padding: 4px 2px 4px 2px;
+  text-align: center;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+main div#homeContainer #homeSide .sideMenuContainer .sideMenuContent .x1 {
+  font-size: 13px;
+}
+main div#homeContainer #homeSide .sideMenuContainer .sideMenuContent .x2 {
+  font-size: 15px;
+}
+main div#homeContainer #homeSide .sideMenuContainer .sideMenuContent .x3 {
+  font-size: 17px;
+}
+main div#homeContainer #homeSide .sideMenuContainer .sideMenuContent .x4 {
+  font-size: 19px;
+}
+main div#homeContainer #homeSide .sideMenuContainer .sideMenuContent .x5 {
+  font-size: 21px;
+}
+
+/*# sourceMappingURL=home.css.map */

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- {-%- seo -%-}-->
+    <link rel="stylesheet" href="/blog/css/styles.css">
+    <!--{-%- feed_meta -%-}-->
+    <!---->
+</head>
+    <body>
+        <div id="backgroundWrapper">
+            <img id="background"></img>
+        </div>
+        <div id="website">
+            <header class="site-header" role="banner">
+                <!-- Settings -->
+
+<div id="headerContainer">
+    <!-- Title -->
+    <div id="headerTitle">
+        <a class="site-title" rel="author" href="/blog/">Digitala Tankar</a>  
+    </div>
+    
+    <div id="headerMenu">
+        <!-- Page Menu Buttons-->
+        
+            <div class="buttons">
+              <a class="page-link" href="/pages/about/">About</a>
+            </div>
+            
+        
+            <div class="buttons">
+              <a class="page-link" href="/pages/categories/">Categories</a>
+            </div>
+            
+        
+            <div class="buttons">
+              <a class="page-link" href="/pages/resurser/">Resurser</a>
+            </div>
+            
+        
+        <!-- Placeholder Menu Buttons-->
+        
+        
+            
+                <div class="buttons placeholder">N/A</div>
+            
+                <div class="buttons placeholder">N/A</div>
+            
+                <div class="buttons placeholder">N/A</div>
+            
+        
+    </div>
+</div>
+            </header>
+            <main>
+                <div id="postContainer">
+    !!!MESSAGE FROM POST TEMPLATE!!!
+    <h1>11ty Plugin</h1>
+<h2></h2>
+<p>På min blogg vill jag att det skall finnas ett tag-moln (<em>eng: tag cloud</em>) som
+underlättar för besökare att hitta inlägg som intresserar dem. Besökaren skall
+kunna välja en tagg och då hamna på en sida med bara inlägg som berör det valda
+ämnet. Detta är en funktion som inte finns per automatik i 11ty men de har något som
+kallas &quot;<em>collections</em>&quot; och ser ut att ha den information som jag behöver för att
+kunna hacka/kriva min egna funktion.</p>
+<h2>Plugin</h2>
+<p>Som jag ser det så är detta ett perfekt tillfälle att lära mig hur man skapar
+plugins till 11ty. Ett plugin är ny funktionalitet som är paketerad på ett
+sådant sätt att det är isolerat från resten av mjukvaran samtidigt som det
+kan installeras på ett enkelt sätt.</p>
+<h2>Collections</h2>
+<p>Dessa &quot;<em>collections</em>&quot; ser ut att vara ett system som håller reda på inlägg och
+deras associerade taggar. Man använder collections för att filtrera inlägg och
+skapa länkar till dem. Troligen finns det mer under huven och därför la jag till
+följande rad i <em>.eleventy.js</em> filen.</p>
+<pre><code class="language-javascript">module.exports = function(config)
+{
+    ...
+    config.addCollection(&quot;test&quot;, function(collection) {
+        console.log(collection);
+        return collection.getAll();
+    });
+    ...
+}
+</code></pre>
+<p>Detta är ett Node.JS system som genererar en statisk hemsida baserat på det innehåll
+som du tillhandahåller. Denna fil innehåller dina inställningar och tillåter dig
+definiera genereringsmetod samt platsen där 11ty kan hitta ditt innehåll mm. Så detta
+måste vara en av de första filerna som 11ty läser in. Eftersom detta är Node.js så innebär
+det att jag kan exekvera kod där inne.</p>
+<p>Informationen som skrevs ut var mer komplett än jag trodde.</p>
+<h1>Reflektioner</h1>
+<h1>Framtiden</h1>
+<p>Det finns många funktioner som jag vill ha framöver. Kanske finns de redan och
+jag har bara inte funnit dem men spontant så kan jag tänka mig följande:</p>
+<ul>
+<li>kodvisualisering med färghjälp för funtioner, variabler mm.</li>
+<li>sidindex som listar alla rubriker i ett inlägg.</li>
+</ul>
+<p>Därför kommer jag nog skriva många fler plugins och kanske göra en eller flera
+av dem tillgängliga via Github senare.</p>
+
+</div>
+            </main>
+            <footer class="site-footer">
+                <div id="footContainer">
+    <div>About</div>
+    <div>Copyright</div>
+    <div>Other Information</div>
+    <div>Validation</div>
+</div>  
+            </footer>
+        </div>
+    </body>
+</html>

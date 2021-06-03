@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- {-%- seo -%-}-->
+    <link rel="stylesheet" href="/blog/css/styles.css">
+    <!--{-%- feed_meta -%-}-->
+    <!---->
+</head>
+    <body>
+        <div id="backgroundWrapper">
+            <img id="background"></img>
+        </div>
+        <div id="website">
+            <header class="site-header" role="banner">
+                <!-- Settings -->
+
+<div id="headerContainer">
+    <!-- Title -->
+    <div id="headerTitle">
+        <a class="site-title" rel="author" href="/blog/">Digitala Tankar</a>  
+    </div>
+    
+    <div id="headerMenu">
+        <!-- Page Menu Buttons-->
+        
+            <div class="buttons">
+              <a class="page-link" href="/pages/about/">About</a>
+            </div>
+            
+        
+            <div class="buttons">
+              <a class="page-link" href="/pages/categories/">Categories</a>
+            </div>
+            
+        
+            <div class="buttons">
+              <a class="page-link" href="/pages/resurser/">Resurser</a>
+            </div>
+            
+        
+        <!-- Placeholder Menu Buttons-->
+        
+        
+            
+                <div class="buttons placeholder">N/A</div>
+            
+                <div class="buttons placeholder">N/A</div>
+            
+                <div class="buttons placeholder">N/A</div>
+            
+        
+    </div>
+</div>
+            </header>
+            <main>
+                <div id="postContainer">
+    !!!MESSAGE FROM POST TEMPLATE!!!
+    <p>Gratis smakar gott! Är man lite teknisk och vill ha en hemsida så kan man
+enkelt skapa sig SSG på Github där man enkelt delar det man finner intressant.</p>
+<p>Github är baserat på Git, ägs idag av Microsoft och är en gratis resurs där man
+kan spara kod och andra text-baserade filer i molnet. Det är inte en Goodle Drive
+eller OneDrive för dina kontorsdokument, det är mer specialiserat för utvecklare
+och tycker inte om binära filer som bilder, musik eller byggda applikationer.</p>
+<p><em>SSG</em> står för &quot;<em>Static Site Generator</em>&quot; (<em>SE: Statisk Hemside-generator</em>) och
+handlar om ett verktyg som genererar din hemsida från dina konfigurationer,
+templates, bilder och text.</p>
+<h1>Guide</h1>
+<p>Jag har inte prövat alla templateverktyg där ute och kommer aldrig hinna göra det.
+Däremot så har jag hunnit uppleva Ruby, Jekyll och Liquid som Github frontar i sin
+information och där sprang jag på det ena efter det andra.</p>
+<p>Medan jag arbetade på sidan så sprang jag på 11ty som är i stort sett detsamma, en
+evolution men miljön kombinerar Node.js, 11ty och Nunjucks. Sen gör inte 11ty lika
+många antaganden som Jekyll och därför är inte SASS inkluderat, utan det är något
+som du måste installera och konfigurera på egen hand (<em>det är enkelt</em>).</p>
+<h2>Installera Node.js</h2>
+<h2>Configurera Nunjucks</h2>
+<h2>SASS</h2>
+<p>För att få igång SASS så valde jag att följa denna video: https://egghead.io/lessons/11ty-add-sass-compiling-and-watch-for-changes-in-eleventy-11ty</p>
+<ol>
+<li>Försäkra dig om att du är i rot mappem för ditt projekt och använd följande kommando
+(<em>exkludera &quot;$&quot; tecken</em>): <code>bash $ npm install sass npm-run-all</code> Detta kommer kommer
+även uppdatera din <em>package.json</em> fil.</li>
+<li>Se till att informationen nedan finns i din <em>package.json</em> fil:</li>
+</ol>
+<pre><code class="language-json">{
+    ...
+    &quot;scripts&quot;: {
+        &quot;watch:sass&quot;: &quot;npx sass _site/sass:dist/css --watch&quot;,
+        &quot;build:sass&quot;: &quot;npx sass _site/sass:dist/css&quot;,
+        &quot;watch:eleventy&quot;: &quot;npx @11ty/eleventy --serve&quot;,
+        &quot;build:eleventy&quot;: &quot;npx @11ty/eleventy&quot;,
+        &quot;start&quot;: &quot;npm run watch:eleventy &amp;&amp; watch:sass&quot;,
+        &quot;build&quot;: &quot;npm run build:eleventy &amp;&amp; build:sass&quot;
+    }
+    ...
+}
+</code></pre>
+<p>Efter detta så kan du bygga och servera sidan genom att skriva följande saker i din terminal</p>
+<pre><code class="language-bash">$ npm install sass npm-run-all
+</code></pre>
+<h2>NPM-RUN-ALL</h2>
+<p>https://stackoverflow.com/questions/30950032/how-can-i-run-multiple-npm-scripts-in-parallel</p>
+<p>Jag sitter på Windows och det finns en stor risk att ni också gör det. För att automatiskt uppdatera
+sidan när en SASS fil ändras samtidigt som du &quot;serverar&quot; 11ty sidan så måste du köra två skript samtidigt.
+Det finns olika sätt att lösa detta på med varierande problem men en lösning passar alla.</p>
+<p>Vi kommer installera npm-run-all globalt och göra det tillgängligt i projektet. Se det som en förlängning
+av NPM just för att köra mer än ett skript samtigt.</p>
+<pre><code class="language-bash"># Installera i din globala Node.js installation
+$ npm i -g npm-run-all
+
+# Installera och spara i projektet där package.json existerar
+$ npm i npm-run-all --save-dev
+
+</code></pre>
+<p>Sen måste vi uppdatera package.json filen med några skript som gör livet enklare</p>
+<pre><code class="language-json">{
+    ...
+    &quot;scripts&quot;: {
+        &quot;watch:sass&quot;: &quot;npx sass _site/sass:dist/css --watch&quot;,
+        &quot;build:sass&quot;: &quot;npx sass _site/sass:dist/css&quot;,
+        &quot;watch:eleventy&quot;: &quot;npx @11ty/eleventy --serve&quot;,
+        &quot;build:eleventy&quot;: &quot;npx @11ty/eleventy&quot;,
+        &quot;start&quot;: &quot;npm run watch:eleventy &amp;&amp; watch:sass&quot;,
+        &quot;build&quot;: &quot;npm run build:eleventy &amp;&amp; build:sass&quot;
+    }
+    ...
+}
+</code></pre>
+<h2>Github Actions</h2>
+<h2>Hemsidans Sökväg</h2>
+
+</div>
+            </main>
+            <footer class="site-footer">
+                <div id="footContainer">
+    <div>About</div>
+    <div>Copyright</div>
+    <div>Other Information</div>
+    <div>Validation</div>
+</div>  
+            </footer>
+        </div>
+    </body>
+</html>
